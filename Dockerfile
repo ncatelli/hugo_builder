@@ -18,4 +18,4 @@ RUN apt-get update && \
 VOLUME /data
 WORKDIR /data
 
-CMD ["hugo"]
+ENTRYPOINT ["hugo"]
