@@ -7,7 +7,7 @@ LABEL description="The hugo build environment for the packetfire site."
 ARG HUGOVERSION
 
 RUN apt-get update && \ 
-    apt-get install -y curl rsync && \
+    apt-get install -y curl && \
     curl -sk "https://github.com/gohugoio/hugo/releases/download/v${HUGOVERSION}/hugo_${HUGOVERSION}_Linux-64bit.tar.gz" -L -o /tmp/hugo.tar.gz && \
     tar -zxf /tmp/hugo.tar.gz -C /tmp/ && \
     mv /tmp/hugo /usr/local/bin/hugo && \
