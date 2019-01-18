@@ -6,9 +6,6 @@ services:
 env:
   - PROJECT_IMAGE=ncatelli/hugo_builder
 
-before_script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-
 script:
   - docker build -t $PROJECT_IMAGE:$TRAVIS_BRANCH -t $PROJECT_IMAGE:latest .
 
@@ -16,6 +13,7 @@ deploy:
   if: TRAVIS_PULL_REQUEST = false
   provider: script
   script: 
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - docker push $PROJECT_IMAGE:latest
     - docker push $PROJECT_IMAGE:$TRAVIS_BRANCH
   on:
