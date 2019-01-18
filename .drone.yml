@@ -1,7 +1,0 @@
----
-pipeline:
-  docker:
-    image: plugins/docker
-    repo: ncatelli/hugo_builder
-    auto_tag: true
-    secrets: [ docker_username, docker_password ]
